@@ -1,0 +1,23 @@
+[package]
+name = "unsafe_lint"
+version = "0.1.0"
+edition = "2021"
+description = "Static checker for unwind double-free in unsafe code and boundless unsafe Send/Sync impls"
+
+[[bin]]
+name = "unsafe-lint"
+path = "src/main.rs"
+
+[lib]
+name = "unsafe_lint"
+path = "src/lib.rs"
+
+[dependencies]
+syn = { version = "2", features = ["full", "extra-traits", "parsing"] }
+proc-macro2 = { version = "1", features = ["span-locations"] }
+quote = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = "0.8"
+
+[dev-dependencies]
